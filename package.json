@@ -1,0 +1,36 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "A TODO list created with express & react",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "start-server": "nodemon server/app.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run start-server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gerald-tetteh/Todo-List.git"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "node",
+    "javascript"
+  ],
+  "author": "Gerald Addo-Tetteh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gerald-tetteh/Todo-List/issues"
+  },
+  "homepage": "https://github.com/gerald-tetteh/Todo-List#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.2"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.0"
+  }
+}
