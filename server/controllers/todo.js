@@ -4,7 +4,7 @@ const TodoModel = require("../models/Todo");
 
 exports.getTodoList = async (req, res, next) => {
   try {
-    const todoList = await TodoModel.find({});
+    const todoList = await TodoModel.find({}).sort({ date: "desc" }).exec();
     res.json(todoList);
   } catch (e) {
     res.status(500).end();
