@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/todo-list", todoControllers.getTodoList);
 
-router.get("/todo/:id", todoControllers.getTodo);
+// router.get("/todo/:id", todoControllers.getTodo);
 
 router.post("/create-todo", todoControllers.postCreateTodo);
 

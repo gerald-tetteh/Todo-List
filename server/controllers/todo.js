@@ -4,21 +4,21 @@ const TodoModel = require("../models/Todo");
 
 exports.getTodoList = async (req, res, next) => {
   try {
-    const todoList = await TodoModel.find({});
+    const todoList = await TodoModel.find({}).sort({ date: "desc" }).exec();
     res.json(todoList);
   } catch (e) {
     res.status(500).end();
   }
 };
 
-exports.getTodo = async (req, res, next) => {
-  try {
-    const todo = await TodoModel.find({ _id: req.params.id });
-    res.json(todo);
-  } catch (e) {
-    res.status(500).json({ error: `${e.message}` });
-  }
-};
+// exports.getTodo = async (req, res, next) => {
+//   try {
+//     const todo = await TodoModel.find({ _id: req.params.id });
+//     res.json(todo);
+//   } catch (e) {
+//     res.status(500).json({ error: `${e.message}` });
+//   }
+// };
 
 exports.postCreateTodo = async (req, res, next) => {
   const todo = new TodoModel({
@@ -47,11 +47,11 @@ exports.postUpdateTodo = async (req, res, next) => {
   try {
     const id = req.body.id;
     const title = req.body.title;
-    const { nModified } = await TodoModel.updateOne(
+    const completed = req.body.completed;
+    await TodoModel.updateOne(
       { _id: id },
-      { title: title }
+      { title: title, completed: completed }
     );
-    assert(nModified === 1);
     res.status(201).end();
   } catch (e) {
     res.status(500).end();
