@@ -21,7 +21,9 @@ body {
   font-size: 1.3rem;
 }
 div.app-container {
-  margin-top: 2rem;
+  max-width: 45rem;
+  width: 100%;
+  margin: 2rem auto;
 }
 
 /* Home Page */
@@ -34,9 +36,6 @@ div.app-container {
   font-weight: 700;
   margin: 0 auto;
   font-size: 2.5rem;
-}
-.header-input-form {
-  border: 2px solid rgba(252,176,69,1);
 }
 .header-input-form input {
   width: 80%;
@@ -90,3 +89,36 @@ div.app-container {
   border-radius: 1rem;
   background-color: red;
 }
+
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 80%;
+  }
+  div.app-container {
+    margin: 2rem auto;
+  }
+  .todo-list-item input {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 120%;
+  }
+  body {
+    font-size: 1.6rem;
+  }
+  .btn {
+    font-size: 1rem;
+    padding-bottom: 0.1rem;
+  }
+  .todo-list-item input {
+    padding: 1rem;
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2);
+    transform: scale(2); /* Opera */
+  }
+} 
